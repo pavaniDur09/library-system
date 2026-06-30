@@ -4,7 +4,7 @@ A console-based Library Management System built in Java as part of **Week 3 – 
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 week3-library-system/
@@ -27,7 +27,7 @@ week3-library-system/
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
@@ -46,7 +46,7 @@ week3-library-system/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -122,7 +122,7 @@ Enter your choice: 9
 
 ---
 
-## 🏗️ OOP Design
+## OOP Design
 
 ### `Book.java`
 Encapsulates all book data (ISBN, title, author, year, availability, borrower, due date). Contains logic to detect overdue status and calculate days overdue. Serialises/deserialises itself to/from a pipe-delimited file line.
@@ -141,7 +141,7 @@ Entry point and UI. Presents the console menu, reads and validates all user inpu
 
 ---
 
-## 📁 Data File Format
+##  Data File Format
 
 ### `books.txt`
 ```
@@ -159,7 +159,7 @@ MEM002|Bob Smith|bob@email.com|07700900002|none
 
 ---
 
-## 📋 Business Rules
+## Business Rules
 
 - Books are loaned for **2 weeks** from the borrow date.
 - Overdue fine is **£0.50 per day** past the due date.
@@ -169,18 +169,10 @@ MEM002|Bob Smith|bob@email.com|07700900002|none
 
 ---
 
-## 🔧 Possible Extensions
+## Possible Extensions
 
 - Password-protected admin login
 - GUI front-end using JavaFX or Swing
 - Book reservation / waitlist system
 - Email notifications for overdue books (JavaMail)
 - Replace flat-file storage with SQLite (JDBC)
-
----
-
-## 👤 Author
-
-**[Your Name]**  
-Week 3 Submission – Java Programming Basics  
-[Your Course / Cohort Name]
