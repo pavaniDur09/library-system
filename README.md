@@ -32,7 +32,7 @@ week3-library-system/
 | Feature | Description |
 |---|---|
 | **Add / Remove Books** | Add books with ISBN, title, author and year; remove books that are not borrowed |
-| **Register Members** | Register library members with ID, name, email and phone |
+| **Register Members/remove** | Register library members with ID, name, email and phone |
 | **Borrow a Book** | Borrow an available book; automatically sets a 2-week due date |
 | **Return a Book** | Return a book and calculate any overdue fine (£0.50/day) |
 | **Search Books** | Search across title, author, or ISBN (case-insensitive) |
@@ -168,11 +168,3 @@ MEM002|Bob Smith|bob@email.com|07700900002|none
 - Book search is **case-insensitive** and matches title, author, or ISBN.
 
 ---
-
-## Possible Extensions
-
-- Password-protected admin login
-- GUI front-end using JavaFX or Swing
-- Book reservation / waitlist system
-- Email notifications for overdue books (JavaMail)
-- Replace flat-file storage with SQLite (JDBC)
