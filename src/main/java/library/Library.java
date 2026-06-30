@@ -139,6 +139,23 @@ public class Library {
         }
     }
 
+    public boolean removeMember(String id) {
+        Member member = findMemberById(id);
+        if (member == null) {
+            System.out.println("Member not found with ID: " + id);
+            return false;
+        }
+        if (member.getBorrowedCount() > 0) {
+            System.out.println("Cannot remove member: they still have " +
+                member.getBorrowedCount() + " book(s) borrowed. Please return them first.");
+            return false;
+        }
+        members.remove(member);
+        fileHandler.saveMembers(members);
+        System.out.println("Member removed: " + member.getName() + " (ID: " + id + ")");
+        return true;
+    }
+    
     // --------------------------------------------------------- Borrow/Return
 
     public boolean borrowBook(String isbn, String memberId) {

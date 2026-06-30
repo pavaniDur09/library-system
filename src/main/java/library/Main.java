@@ -14,29 +14,38 @@ public class Main {
         boolean running = true;
         while (running) {
             printMainMenu();
-            int choice = readInt("Enter your choice: ", 1, 10);
+            int choice = readInt("Enter your choice: ", 1, 13);
             System.out.println();
             switch (choice) {
                 case 1  -> menuAddBook();
-                case 2  -> library.displayAllBooks();
-                case 3  -> menuSearchBooks();
-                case 4  -> menuRegisterMember();
-                case 5  -> library.displayAllMembers();
-                case 6  -> menuBorrowBook();
-                case 7  -> menuReturnBook();
-                case 8  -> menuMemberBorrowings();
-                case 9  -> library.displayStatistics();
-                case 10 -> {
+                case 2  -> menuRemoveBook();
+                case 3  -> library.displayAllBooks();
+                case 4  -> menuSearchBooks();
+                case 5  -> menuRegisterMember();
+                case 6  -> menuRemoveMember();
+                case 7  -> library.displayAllMembers();
+                case 8  -> menuBorrowBook();
+                case 9  -> menuReturnBook();
+                case 10  -> menuMemberBorrowings();
+                case 11  -> library.displayStatistics();
+                case 12 -> {
                     System.out.println("Exporting books to CSV...");
                     library.exportBooksToCSV();
+                }
+                case 13 -> {
+                    System.out.println("Thank you for using the Library Management System");
+                    running = false;
                 }
                 default -> System.out.println("Invalid option.");
             }
 
-            System.out.println();
-            System.out.print("Press ENTER to continue...");
-            scanner.nextLine();
+            if (running){
+                System.out.println();
+                System.out.print("Press ENTER to continue...");
+                scanner.nextLine();
+            }
         }
+        scanner.close();
     }
 
     // ----------------------------------------------------------------- Menus
@@ -48,6 +57,14 @@ public class Main {
         String author = readString("Author       : ");
         int    year   = readInt("Year (e.g. 2023): ", 1000, 2100);
         library.addBook(isbn, title, author, year);
+    }
+
+     private static void menuRemoveBook() {
+        System.out.println("=== REMOVE BOOK ===");
+        library.displayAllBooks();
+        System.out.println();
+        String isbn = readString("Enter ISBN of book to remove: ");
+        library.removeBook(isbn);
     }
 
     private static void menuSearchBooks() {
@@ -74,6 +91,14 @@ public class Main {
         library.registerMember(id, name, email, phone);
     }
 
+    private static void menuRemoveMember() {
+        System.out.println("=== REMOVE MEMBER ===");
+        library.displayAllMembers();
+        System.out.println();
+        String id = readString("Enter Member ID to remove: ");
+        library.removeMember(id);
+    }
+    
     private static void menuBorrowBook() {
         System.out.println("=== BORROW BOOK ===");
         library.displayAvailableBooks();
@@ -99,9 +124,9 @@ public class Main {
     // --------------------------------------------------------------- Helpers
 
     private static void printBanner() {
-        System.out.println("╔══════════════════════════════════════════════════════════════╗");
-        System.out.println("║          LIBRARY MANAGEMENT SYSTEM  v1.0                    ║");
-        System.out.println("╚══════════════════════════════════════════════════════════════╝");
+        System.out.println("╔═══════════════════════════════════════════════════════╗");
+        System.out.println("║          LIBRARY MANAGEMENT SYSTEM                    ║");
+        System.out.println("╚═══════════════════════════════════════════════════════╝");
         System.out.println();
     }
 
@@ -110,15 +135,18 @@ public class Main {
         System.out.println("  MAIN MENU");
         System.out.println("─────────────────────────────────────────");
         System.out.println("  1. Add New Book");
-        System.out.println("  2. View All Books");
-        System.out.println("  3. Search Books");
-        System.out.println("  4. Register New Member");
-        System.out.println("  5. View All Members");
-        System.out.println("  6. Borrow Book");
-        System.out.println("  7. Return Book");
-        System.out.println("  8. View Member's Borrowed Books");
-        System.out.println("  9. Library Statistics");
-        System.out.println(" 10. Export Books to CSV");
+        System.out.println("  2. Remove Book");
+        System.out.println("  3. View All Books");
+        System.out.println("  4. Search Books");
+        System.out.println("  5. Register New Member");
+        System.out.println("  6. Remove Member");
+        System.out.println("  7. View All Members");
+        System.out.println("  8. Borrow Book");
+        System.out.println("  9. Return Book");
+        System.out.println(" 10. View Member's Borrowed Books");
+        System.out.println(" 11. Library Statistics");
+        System.out.println(" 12. Export Books to CSV");
+        System.out.println(" 13. Exit");
         System.out.println("─────────────────────────────────────────");
     }
 
