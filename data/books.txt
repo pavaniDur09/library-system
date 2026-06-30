@@ -1,0 +1,5 @@
+9780134685991|Effective Java|Joshua Bloch|2018|true|null|null
+9781617294945|Spring in Action|Craig Walls|2020|true|null|null
+9781492052205|Fluent Python|Luciano Ramalho|2021|true|null|null
+9780596517748|JavaScript: The Good Parts|Douglas Crockford|2008|true|null|null
+9781491950357|Learning Python|Mark Lutz|2013|true|null|null
